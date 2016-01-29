@@ -1,0 +1,23 @@
+﻿@model string[]
+
+<div class="cast-members" data-bind="foreach: castMembers">
+    
+    @if (Model == null || !Model.Any())
+    {
+        <div class="control-group">
+            @Html.TextBox(string.Empty, string.Empty, new {@class = "form-control"})
+        </div>
+    }
+    else
+    {
+        foreach (var castMember in Model)
+        {
+            <div class="control-group">
+                @Html.TextBox(string.Empty, castMember, new {@class = "form-control"})
+            </div>
+        }
+    }
+</div>
+
+<button id="addCastMember" class="btn" data-bind="click: addCastMember">+</button>
+<button id="removeCastMember" class="btn" data-bind="click: removeCastMember, disable: castMembers().length === 1">-</button>

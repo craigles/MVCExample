@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ConfigInjector</id>
+    <version>1.1.0.6</version>
+    <title>ConfigInjector</title>
+    <authors>Andrew Harcourt</authors>
+    <owners>Andrew Harcourt</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/uglybugger/ConfigInjector</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple way to inject strongly-typed configuration settings into your application via [web|app].config.</description>
+    <releaseNotes>.</releaseNotes>
+    <copyright>Copyright 2013 Andrew Harcourt</copyright>
+    <tags>config configuration setting application ConfigurationManager Autofac Windsor Ninject</tags>
+    <dependencies>
+      <dependency id="ThirdDrawer" version="1.0.1.3" />
+    </dependencies>
+  </metadata>
+</package>

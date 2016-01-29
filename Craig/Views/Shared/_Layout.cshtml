@@ -1,0 +1,39 @@
+﻿@helper ShowMessage(string message, string type)
+{
+    <div class="alert  alert-@Html.Raw(type)">
+        @Html.Raw(message)
+    </div>
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @Styles.Render("~/bundles/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/unobtrusive-ajax")
+        @Scripts.Render("~/bundles/bootstrap-slider")
+        @Scripts.Render("~/bundles/knockout")
+        @Styles.Render("~/bundles/bootstrap-slider-css")
+        
+        @RenderSection("Scripts", false)
+        <title>Test</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            @if (TempData.ContainsKey("successMessage"))
+            {
+                @ShowMessage(TempData["successMessage"].ToString(), "success")
+            }
+
+            @if (TempData.ContainsKey("errorMessage"))
+            {
+                @ShowMessage(TempData["errorMessage"].ToString(), "error")
+            }
+
+            @RenderBody()
+        </div>
+</body>
+</html>

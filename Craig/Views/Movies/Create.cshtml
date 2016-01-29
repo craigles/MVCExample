@@ -1,0 +1,60 @@
+﻿@model Craig.Models.Movies.CreateModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Movies/Cast.js")"></script>
+
+<h1>Movie Details</h1>
+
+@using (Html.BeginForm("Create", "Movies", null, FormMethod.Post, new { @class = "form-horizontal"}))
+{
+    <div class="row">
+        <div class="span6">
+            <div class="control-group">
+                
+                @Html.LabelFor(_ => Model.Title, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.EditorFor(_ => Model.Title, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(_ => Model.Title)
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(_ => Model.Classification, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.EnumDropDownListFor(_ => Model.Classification, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(_ => Model.Classification)
+                </div>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                @Html.LabelFor(_ => Model.ReleaseDate, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.EditorFor(_ => Model.ReleaseDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(_ => Model.ReleaseDate)
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.LabelFor(_ => Model.Rating, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.EditorFor(_ => Model.Rating, "Rating", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(_ => Model.Rating)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <div class="control-group">
+                @Html.LabelFor(_ => Model.Cast, new { @class = "control-label" })
+                <div class="controls">
+                    @Html.EditorFor(_ => Model.Cast, "Cast", new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <input type="submit" value="Submit"/>
+}

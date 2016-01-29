@@ -1,0 +1,67 @@
+﻿@using Craig.Models.Movies
+@model MoviesModel
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Movies/Movies.js")"></script>
+
+@functions {
+    public string GetClass(int pageNumber, int currentPage)
+    {
+        return pageNumber == currentPage ? "active" : string.Empty;
+    }
+}
+
+@helper TableHeader(string columnName)
+{
+    <th>
+        @Ajax.ActionLink(
+            columnName,
+            "_Movies",
+            new { sortColumn = columnName, sortDirection = Model.SortDirection == SortDirection.Ascending ? SortDirection.Descending : SortDirection.Ascending },
+            new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "movie-table" })
+    </th>
+}
+
+@helper TablePaginationLink(int pageNumber)
+{
+    <li class="@GetClass(pageNumber, Model.Page)">
+        @Ajax.ActionLink(
+            pageNumber.ToString(),
+            "_Movies",
+            new { Page = pageNumber, sortColumn = Model.SortColumn, sortDirection = Model.SortDirection },
+            new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "movie-table" })
+    </li>
+}
+
+<div id="movie-table">
+    <table class="table">
+        <thead>
+            <tr>
+                @TableHeader("Title")
+                @TableHeader("Classification")
+                @TableHeader("ReleaseDate")
+                @TableHeader("Rating")
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model.Movies)
+            {
+                <tr id="@movie.MovieId" class="movie-row">
+                    <td>@Html.DisplayFor(_ => movie.Title)</td>
+                    <td>@Html.DisplayFor(_ => movie.Classification)</td>
+                    <td>@Html.DisplayFor(_ => movie.ReleaseDate)</td>
+                    <td>@Html.DisplayFor(_ => movie.Rating)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <nav>
+        <div class="pagination">
+            <ul>
+                @for (var pageNumber = 1; pageNumber <= Model.NumberOfPages; pageNumber++)
+                {
+                    @TablePaginationLink(pageNumber)
+                }
+            </ul>
+        </div>
+    </nav>
+</div>
