@@ -1,6 +1,0 @@
-c:\Users\Craig\Documents\Visual Studio 2013\Projects\Craig\Repository\bin\Debug\Repository.dll
-c:\Users\Craig\Documents\Visual Studio 2013\Projects\Craig\Repository\bin\Debug\Repository.pdb
-c:\Users\Craig\Documents\Visual Studio 2013\Projects\Craig\Repository\bin\Debug\Movies.dll
-c:\Users\Craig\Documents\Visual Studio 2013\Projects\Craig\Repository\obj\Debug\Repository.dll
-c:\Users\Craig\Documents\Visual Studio 2013\Projects\Craig\Repository\obj\Debug\Repository.pdb
-c:\Users\Craig\Documents\Visual Studio 2013\Projects\Craig\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
